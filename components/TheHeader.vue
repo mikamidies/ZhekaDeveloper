@@ -1,5 +1,6 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="navbar">
+    <img src="/public/assets/img/header-bg.png" alt="" class="back" />
     <div class="container">
       <div class="left">
         <button class="brand">Logo</button>
@@ -25,7 +26,26 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, onUnmounted } from "vue";
+
+function scrollHeader() {
+  const navbar = document.getElementById("navbar");
+  if (window.scrollY >= 50) {
+    navbar.classList.add("scroll");
+  } else {
+    navbar.classList.remove("scroll");
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", scrollHeader);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollHeader);
+});
+</script>
 
 <style scoped>
 .wrap {
@@ -33,12 +53,41 @@
   position: fixed;
   width: 100%;
   z-index: 99;
+  transition: 0.4s;
+}
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  object-fit: cover;
+  display: none;
+}
+.scroll {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+.scroll .link,
+.scroll .langer {
+  color: var(--black);
+}
+.scroll .back {
+  opacity: 1;
+  visibility: visible;
 }
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1766px;
+  max-width: 90%;
+  position: relative;
+  z-index: 2;
 }
 .brand {
   font-size: 48px;

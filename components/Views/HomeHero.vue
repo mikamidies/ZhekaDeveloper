@@ -10,7 +10,9 @@
     ></video>
     <div class="container">
       <h4 class="title">Independent <span>Frontend</span> Developer</h4>
-      <button class="about">About me</button>
+      <button @click="scrollElement('about')" class="about">
+        <p>About me</p>
+      </button>
     </div>
     <button @click="scrollElement('about')" class="down">
       <img src="/public/assets/img/to-bottom.png" alt="" />
@@ -87,15 +89,39 @@ const scrollElement = (id) => {
   position: relative;
   margin: 0;
   padding: 16px 48px;
+  border: 0;
+  background: var(--blue);
+  border-radius: 0;
+  transition: all 0.4s linear;
+  overflow: hidden;
+}
+.about p {
   color: #fff;
   font: 14px "Montserrat", sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  border: 0;
-  background: var(--blue);
-  border-radius: 0;
-  transition: all 0.4s linear;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
+}
+.about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1;
+  transition: 0.4s;
+  transform: translateX(-100%);
+}
+.about:hover::after {
+  transform: translateX(0);
+}
+.about:hover p {
+  color: var(--blue);
 }
 .down {
   position: absolute;

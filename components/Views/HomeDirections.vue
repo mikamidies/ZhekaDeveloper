@@ -1,9 +1,180 @@
 <template>
   <div class="wrap" id="directions">
     <div class="container">
-      <SectionTitle :title="`Directions of work`" :number="`03`" />
+      <div class="left">
+        <SectionTitle :title="`Directions of work`" :number="`03`" />
+      </div>
+
+      <button class="about">
+        <p>Contact me!</p>
+      </button>
+    </div>
+    <div class="items">
+      <div class="item">
+        <img src="/public/assets/img/serv-1.jpg" alt="" class="pic" />
+        <div class="content">
+          <p class="sup">Solutions</p>
+          <h4 class="title">Frontend</h4>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/public/assets/img/serv-2.jpg" alt="" class="pic" />
+        <div class="content">
+          <p class="sup">Solutions</p>
+          <h4 class="title">Backend</h4>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/public/assets/img/serv-3.jpg" alt="" class="pic" />
+        <div class="content">
+          <p class="sup">Solutions</p>
+          <h4 class="title">Game Dev</h4>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/public/assets/img/serv-4.jpg" alt="" class="pic" />
+        <div class="content">
+          <p class="sup">Solutions</p>
+          <h4 class="title">Graphic design</h4>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.wrap {
+  padding: 72px 0;
+}
+.items {
+  margin-top: 72px;
+  display: flex;
+}
+.item {
+  width: 25%;
+  height: 640px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.7s;
+}
+.item::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: 0.4s;
+}
+.pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+}
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  transition: 0.4s;
+  padding: 32px;
+}
+.title {
+  display: block;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 36px;
+  transition: 0.3s;
+}
+.sup {
+  position: relative;
+  display: block;
+  margin: 0 0 12px;
+  padding: 0 0 0 60px;
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.sup::after {
+  position: absolute;
+  display: block;
+  width: 45px;
+  height: 1px;
+  top: 8px;
+  left: 0;
+  background: var(--blue);
+  content: "";
+}
+.item:hover {
+  width: 33%;
+}
+.item:hover::after {
+  opacity: 0.25;
+}
+.item:hover .pic {
+  transform: scale(1.15);
+}
+.item:hover .content {
+  bottom: 32px;
+  left: 44px;
+}
+.item:hover .title {
+  font-size: 44px;
+}
+.about {
+  position: relative;
+  margin: 0;
+  padding: 14px 48px;
+  border: 0;
+  background: var(--blue);
+  border-radius: 0;
+  transition: all 0.4s linear;
+  overflow: hidden;
+  border: 2px solid var(--blue);
+}
+.about p {
+  color: #fff;
+  font: 14px "Montserrat", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
+}
+.about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1;
+  transition: 0.4s;
+  transform: translateX(-102%);
+}
+.about:hover::after {
+  transform: translateX(0);
+}
+.about:hover p {
+  color: var(--blue);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left {
+  width: 50%;
+}
+</style>

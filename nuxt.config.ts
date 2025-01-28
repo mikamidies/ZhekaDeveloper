@@ -19,5 +19,5 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["public/assets/css/main.css"],
+  css: ["public/assets/css/main.css", "swiper/swiper-bundle.css"],
 });

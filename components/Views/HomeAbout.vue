@@ -27,6 +27,48 @@
           </p>
         </div>
       </div>
+
+      <div class="items">
+        <div class="item">
+          <div class="logo">
+            <Icon icon="material-symbols:nest-clock-farsight-analog-outline" />
+          </div>
+          <p class="value">5+ Years</p>
+          <p class="desc">
+            Creating technical expertise with creative vision to bring unique
+            ideas to life.
+          </p>
+        </div>
+        <div class="item">
+          <div class="logo">
+            <Icon icon="material-symbols:download-done-rounded" />
+          </div>
+          <p class="value">50+ Projects</p>
+          <p class="desc">
+            I’ve successfully delivered over 50 projects to satisfied clients
+            worldwide.
+          </p>
+        </div>
+        <div class="item">
+          <div class="logo">
+            <Icon icon="material-symbols:sentiment-very-satisfied-outline" />
+          </div>
+          <p class="value">100% Clients</p>
+          <p class="desc">
+            Focus on quality and personalized approach ensures every client gets
+            a solution for their needs
+          </p>
+        </div>
+        <div class="item">
+          <div class="logo">
+            <Icon icon="material-symbols:counter-3-outline" />
+          </div>
+          <p class="value">3 Core Areas</p>
+          <p class="desc">
+            From websites and games to Telegram bots and graphic designs
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -137,5 +179,44 @@
   left: -5px;
   background: var(--blue);
   content: "";
+}
+.items {
+  padding-top: 168px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.item {
+  background: var(--border);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: 0.4s;
+}
+.item:hover {
+  transform: translateY(-10px);
+  cursor: default;
+}
+.logo svg {
+  width: 56px;
+  height: 56px;
+  opacity: 0.7;
+}
+.value {
+  display: block;
+  color: var(--blue);
+  font: 24px "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 120%;
+}
+.desc {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  opacity: 0.8;
 }
 </style>

@@ -1,9 +1,18 @@
 <template>
   <div class="wrapper">
-    <p class="txt">Section Title</p>
-    <p class="num">01</p>
+    <p class="txt">{{ title }}</p>
+    <p class="num">{{ number }}</p>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    title: "",
+    number: "",
+  },
+};
+</script>
 
 <style scoped>
 .wrapper {

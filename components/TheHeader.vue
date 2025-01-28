@@ -3,16 +3,17 @@
     <img src="/public/assets/img/header-bg.png" alt="" class="back" />
     <div class="container">
       <div class="left">
-        <button class="brand">Logo</button>
+        <button @click="scrollElement('hero')" class="brand">Logo</button>
       </div>
       <div class="right">
         <div class="links">
-          <button class="link">About</button>
-          <button class="link">Skills</button>
-          <button class="link">Advantages</button>
-          <button class="link">Directions</button>
-          <button class="link">Projects</button>
-          <button class="link">Contacts</button>
+          <button @click="scrollElement('about')" class="link">About</button>
+          <button @click="scrollElement('skills')" class="link">Skills</button>
+          <button @click="scrollElement('directions')" class="link">
+            Directions
+          </button>
+          <button @click="scrollElement('about')" class="link">Projects</button>
+          <button @click="scrollElement('about')" class="link">Contacts</button>
         </div>
 
         <div class="lang">
@@ -27,7 +28,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 function scrollHeader() {
   const navbar = document.getElementById("navbar");
@@ -45,6 +46,16 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", scrollHeader);
 });
+
+const menuHandle = ref(false);
+
+const scrollElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  menuHandle.value = false;
+};
 </script>
 
 <style scoped>

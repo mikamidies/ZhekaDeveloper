@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="about">
     <div class="container">
       <div class="grid">
         <div class="left">
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="right">
-          <SectionTitle />
+          <SectionTitle :title="`About me`" :number="`01`" />
           <h4 class="title">
             High quality <br />
             projects since 2019

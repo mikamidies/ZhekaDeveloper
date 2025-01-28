@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="hero">
     <video
       src="/public/assets/video/video.mp4"
       autoplay
@@ -12,11 +12,25 @@
       <h4 class="title">Independent <span>Frontend</span> Developer</h4>
       <button class="about">About me</button>
     </div>
-    <button class="down">
+    <button @click="scrollElement('about')" class="down">
       <img src="/public/assets/img/to-bottom.png" alt="" />
     </button>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+const menuHandle = ref(false);
+
+const scrollElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  menuHandle.value = false;
+};
+</script>
 
 <style scoped>
 .wrap {

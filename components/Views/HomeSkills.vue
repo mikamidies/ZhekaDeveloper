@@ -1,8 +1,12 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="skills">
     <img class="bg" src="/public/assets/img/bg-waves-banner.png" alt="" />
     <div class="container">
-      <SectionTitle class="white_num" />
+      <SectionTitle
+        :title="`Mastered Skills`"
+        :number="`02`"
+        class="white_num"
+      />
       <Swiper :slides="slides" />
     </div>
   </div>

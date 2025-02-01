@@ -53,7 +53,7 @@
           <div class="logo">
             <Icon icon="material-symbols:sentiment-very-satisfied-outline" />
           </div>
-          <p class="value">100% Clients</p>
+          <p class="value">100% Satisfied</p>
           <p class="desc">
             Focus on quality and personalized approach ensures every client gets
             a solution for their needs

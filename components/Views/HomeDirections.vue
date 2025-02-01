@@ -39,15 +39,30 @@
         </div>
       </div>
     </div>
+    <div class="container" style="padding-bottom: 28px"></div>
   </div>
 </template>
 
 <style scoped>
-.wrap {
+.container {
+  border-inline: 1px solid var(--border);
   padding: 72px 0;
+  position: relative;
+}
+.container::after {
+  position: absolute;
+  display: block;
+  width: 33.33%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 0.5px solid var(--border);
+  border-right: 0.5px solid var(--border);
+  content: "";
+  z-index: -1;
 }
 .items {
-  margin-top: 72px;
   display: flex;
 }
 .item {
@@ -64,7 +79,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 2;
   transition: 0.4s;
 }
@@ -103,6 +118,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: none;
 }
 .sup::after {
   position: absolute;
@@ -118,7 +134,7 @@
   width: 33%;
 }
 .item:hover::after {
-  opacity: 0.25;
+  opacity: 0.4;
 }
 .item:hover .pic {
   transform: scale(1.15);

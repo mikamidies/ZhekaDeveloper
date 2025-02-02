@@ -49,6 +49,9 @@ const projects = [
 </script>
 
 <style scoped>
+.wrap {
+  margin-bottom: -12px;
+}
 .container {
   border-inline: 1px solid var(--border);
   position: relative;

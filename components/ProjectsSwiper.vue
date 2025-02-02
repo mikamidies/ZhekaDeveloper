@@ -99,6 +99,9 @@ function startProgressBar() {
 </script>
 
 <style scoped>
+.projectsSwiper {
+  margin-bottom: -10px;
+}
 .progress-bar {
   width: 560px !important;
   height: 4px;

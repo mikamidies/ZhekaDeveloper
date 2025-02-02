@@ -2,11 +2,15 @@
   <div class="wrap" id="skills">
     <img class="bg" src="/public/assets/img/bg-waves-banner.png" alt="" />
     <div class="container">
-      <SectionTitle
-        :title="`Mastered Skills`"
-        :number="`02`"
-        class="white_num"
-      />
+      <div class="header">
+        <SectionTitle
+          :title="`Mastered Skills`"
+          :number="`02`"
+          class="white_num"
+        />
+        <p class="subtitle">Skills that I mastered!</p>
+      </div>
+
       <Swiper :slides="slides" />
     </div>
   </div>
@@ -48,6 +52,9 @@ const slides = [
   padding: 72px 0;
   position: relative;
 }
+.white_num {
+  width: 50%;
+}
 .white_num :deep(.num) {
   color: white;
 }
@@ -59,5 +66,11 @@ const slides = [
   position: absolute;
   object-fit: cover;
   opacity: 0.2;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
 }
 </style>

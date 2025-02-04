@@ -11,6 +11,7 @@
       <HomeForm />
       <HomePartners />
     </main>
+    <TheFooter />
   </div>
 </template>
 

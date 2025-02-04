@@ -2,7 +2,7 @@
   <div class="wrap" id="about">
     <div class="container">
       <div class="grid">
-        <div class="left">
+        <div class="left" data-aos="fade-right">
           <div class="image">
             <div class="block">
               <img src="/public/assets/img/about.jpg" alt="" class="pic" />
@@ -13,7 +13,7 @@
             </div>
           </div>
         </div>
-        <div class="right">
+        <div class="right" data-aos="fade-left">
           <SectionTitle :title="`About me`" :number="`01`" />
           <h4 class="title">
             High quality <br />
@@ -29,7 +29,7 @@
       </div>
 
       <div class="items">
-        <div class="item">
+        <div class="item" data-aos="fade-up" data-aos-duration="300">
           <div class="logo">
             <Icon icon="material-symbols:nest-clock-farsight-analog-outline" />
           </div>
@@ -39,7 +39,7 @@
             ideas to life.
           </p>
         </div>
-        <div class="item">
+        <div class="item" data-aos="fade-up" data-aos-duration="400">
           <div class="logo">
             <Icon icon="material-symbols:download-done-rounded" />
           </div>
@@ -49,7 +49,7 @@
             worldwide.
           </p>
         </div>
-        <div class="item">
+        <div class="item" data-aos="fade-up" data-aos-duration="500">
           <div class="logo">
             <Icon icon="material-symbols:sentiment-very-satisfied-outline" />
           </div>
@@ -59,7 +59,7 @@
             a solution for their needs
           </p>
         </div>
-        <div class="item">
+        <div class="item" data-aos="fade-up" data-aos-duration="500">
           <div class="logo">
             <Icon icon="material-symbols:counter-3-outline" />
           </div>
@@ -74,6 +74,9 @@
 </template>
 
 <style scoped>
+.wrap {
+  background: white;
+}
 .container {
   border-inline: 1px solid var(--border);
   padding: 104px 0;

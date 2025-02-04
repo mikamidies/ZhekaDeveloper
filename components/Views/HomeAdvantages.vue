@@ -6,7 +6,7 @@
         <p class="subtitle">Why you should work with me?</p>
       </div>
 
-      <div class="items">
+      <div class="items" data-aos="fade-up" data-aos-duration="300">
         <div class="item">
           <div class="logo">
             <Icon icon="ic:twotone-computer" />
@@ -48,6 +48,9 @@
 </template>
 
 <style scoped>
+.wrap {
+  background: white;
+}
 .container {
   border-inline: 1px solid var(--border);
   padding: 104px 0;
@@ -64,7 +67,7 @@
   border-left: 0.5px solid var(--border);
   border-right: 0.5px solid var(--border);
   content: "";
-  z-index: -1;
+  z-index: 1;
 }
 .items {
   display: grid;

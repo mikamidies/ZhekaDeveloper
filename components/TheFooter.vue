@@ -88,7 +88,7 @@
 
 <style scoped>
 .wrap {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   position: relative;
 }
 .back {
@@ -202,6 +202,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   z-index: 9;
   position: relative;
+  z-index: 2;
 }
 .bottom .container {
   display: flex;

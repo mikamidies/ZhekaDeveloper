@@ -53,6 +53,9 @@ function handleCheckboxChange() {
 </script>
 
 <style scoped>
+.wrap {
+  background: white;
+}
 .custom-checkbox {
   display: flex;
   align-items: center;
@@ -167,7 +170,7 @@ function handleCheckboxChange() {
   border-left: 0.5px solid var(--border);
   border-right: 0.5px solid var(--border);
   content: "";
-  z-index: -1;
+  z-index: 1;
 }
 .title {
   display: block;

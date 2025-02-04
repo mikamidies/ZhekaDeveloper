@@ -3,7 +3,10 @@
     <img src="/public/assets/img/header-bg.png" alt="" class="back" />
     <div class="container">
       <div class="left">
-        <button @click="scrollElement('hero')" class="brand">Logo</button>
+        <button @click="scrollElement('hero')" class="brand">
+          <img src="/assets/img/brand.png" class="original" alt="" />
+          <img src="/assets/img/brand-white.png" class="white" alt="" />
+        </button>
       </div>
       <div class="right">
         <div class="links">
@@ -100,10 +103,19 @@ const scrollElement = (id) => {
   position: relative;
   z-index: 2;
 }
-.brand {
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--blue);
+.brand img {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+.original {
+  display: none;
+}
+.scroll .original {
+  display: flex;
+}
+.scroll .white {
+  display: none;
 }
 .links {
   display: flex;

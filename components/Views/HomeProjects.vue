@@ -50,7 +50,7 @@ const projects = [
 
 <style scoped>
 .wrap {
-  margin-bottom: -12px;
+  background: white;
 }
 .container {
   border-inline: 1px solid var(--border);

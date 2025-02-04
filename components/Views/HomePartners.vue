@@ -8,7 +8,7 @@
           <Icon icon="ic:round-chevron-left" />
         </div>
 
-        <div class="partnersSwiper">
+        <div class="partnersSwiper" data-aos="fade-up" data-aos-duration="300">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img src="/assets/img/part-1.png" alt="" class="pic" />
@@ -120,7 +120,6 @@ onMounted(() => {
   width: 60%;
   height: 60%;
   object-fit: contain;
-  mix-blend-mode: luminosity;
   opacity: 0.8;
   transition: 0.4s;
 }

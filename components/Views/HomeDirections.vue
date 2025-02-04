@@ -9,7 +9,7 @@
         <p>Contact me!</p>
       </button>
     </div>
-    <div class="items">
+    <div class="items" data-aos="fade-up">
       <div class="item">
         <img src="/public/assets/img/serv-1.jpg" alt="" class="pic" />
         <div class="content">
@@ -44,6 +44,9 @@
 </template>
 
 <style scoped>
+.wrap {
+  background: white;
+}
 .container {
   border-inline: 1px solid var(--border);
   padding: 72px 0;

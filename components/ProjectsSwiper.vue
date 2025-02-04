@@ -1,5 +1,5 @@
 <template>
-  <div class="comp">
+  <div class="comp" data-aos="fade-up">
     <img class="bg" src="/public/assets/img/bg-waves-banner.png" alt="" />
     <div class="projectsSwiper">
       <div class="swiper-wrapper">

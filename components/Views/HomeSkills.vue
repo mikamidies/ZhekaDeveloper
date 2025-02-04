@@ -11,7 +11,9 @@
         <p class="subtitle">Skills that I mastered!</p>
       </div>
 
-      <Swiper :slides="slides" />
+      <div class="aoser" data-aos="fade-up">
+        <Swiper :slides="slides" />
+      </div>
     </div>
   </div>
 </template>

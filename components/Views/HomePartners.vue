@@ -53,9 +53,13 @@ import "swiper/swiper-bundle.css";
 
 onMounted(() => {
   new Swiper(".partnersSwiper", {
+    modules: [Autoplay, Navigation],
     slidesPerView: 4,
     spaceBetween: 16,
     loop: true,
+    autoplay: {
+      delay: 1000,
+    },
     navigation: {
       nextEl: ".partnersNext",
       prevEl: ".partnersPrev",

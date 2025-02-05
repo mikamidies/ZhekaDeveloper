@@ -40,13 +40,13 @@
               <Icon icon="ic:round-chevron-right" />
               Directions of work
             </button>
-            <button @click="scrollElement('about')" class="link">
+            <button @click="scrollElement('projects')" class="link">
               <Icon icon="ic:round-chevron-right" />
               My Projects
             </button>
-            <button @click="scrollElement('about')" class="link">
+            <button @click="scrollElement('contact')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              My Contacts
+              Contact me
             </button>
           </div>
         </div>
@@ -85,6 +85,37 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+function scrollHeader() {
+  const navbar = document.getElementById("navbar");
+  if (window.scrollY >= 50) {
+    navbar.classList.add("scroll");
+  } else {
+    navbar.classList.remove("scroll");
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", scrollHeader);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollHeader);
+});
+
+const menuHandle = ref(false);
+
+const scrollElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  menuHandle.value = false;
+};
+</script>
 
 <style scoped>
 .wrap {

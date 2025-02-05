@@ -1,5 +1,6 @@
 <template>
-  <div class="wrap" id="skills">
+  <div class="wrap">
+    <div class="anchor" id="skills"></div>
     <img class="bg" src="/public/assets/img/bg-waves-banner.png" alt="" />
     <div class="container">
       <div class="header">
@@ -53,6 +54,9 @@ const slides = [
   background: var(--border);
   padding: 72px 0;
   position: relative;
+}
+.anchor {
+  transform: translateY(-120px);
 }
 .white_num {
   width: 50%;

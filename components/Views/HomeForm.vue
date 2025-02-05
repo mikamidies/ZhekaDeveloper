@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <div class="anchor" id="contact"></div>
     <div class="container">
       <h4 class="title">Contact me</h4>
       <form>
@@ -55,6 +56,10 @@ function handleCheckboxChange() {
 <style scoped>
 .wrap {
   background: white;
+  position: relative;
+}
+.anchor {
+  transform: translateY(-120px);
 }
 .custom-checkbox {
   display: flex;

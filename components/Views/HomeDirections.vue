@@ -1,11 +1,12 @@
 <template>
-  <div class="wrap" id="directions">
+  <div class="wrap">
+    <div class="anchor" id="directions"></div>
     <div class="container">
       <div class="left">
         <SectionTitle :title="`Directions of work`" :number="`03`" />
       </div>
 
-      <button class="about">
+      <button @click="scrollElement('contact')" class="about">
         <p>Contact me!</p>
       </button>
     </div>
@@ -43,9 +44,43 @@
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+function scrollHeader() {
+  const navbar = document.getElementById("navbar");
+  if (window.scrollY >= 50) {
+    navbar.classList.add("scroll");
+  } else {
+    navbar.classList.remove("scroll");
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", scrollHeader);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollHeader);
+});
+
+const menuHandle = ref(false);
+
+const scrollElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  menuHandle.value = false;
+};
+</script>
+
 <style scoped>
 .wrap {
   background: white;
+}
+.anchor {
+  transform: translateY(-100px);
 }
 .container {
   border-inline: 1px solid var(--border);

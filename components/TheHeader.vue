@@ -15,8 +15,12 @@
           <button @click="scrollElement('directions')" class="link">
             Directions
           </button>
-          <button @click="scrollElement('about')" class="link">Projects</button>
-          <button @click="scrollElement('about')" class="link">Contacts</button>
+          <button @click="scrollElement('projects')" class="link">
+            Projects
+          </button>
+          <button @click="scrollElement('contact')" class="link">
+            Contact
+          </button>
         </div>
 
         <div class="lang">
@@ -24,6 +28,17 @@
             Ru
             <Icon class="icon" icon="material-symbols:chevron-right-rounded" />
           </button>
+          <div class="popup">
+            <button class="l">
+              Русский <Icon class="flag" icon="circle-flags:ru" />
+            </button>
+            <button class="l">
+              English <Icon class="flag" icon="circle-flags:en" />
+            </button>
+            <button class="l">
+              O'zbekcha <Icon class="flag" icon="circle-flags:uz" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -104,7 +119,7 @@ const scrollElement = (id) => {
   z-index: 2;
 }
 .brand img {
-  width: 180px;
+  width: 160px;
   height: auto;
   object-fit: contain;
 }
@@ -137,11 +152,58 @@ const scrollElement = (id) => {
   align-items: center;
   gap: 64px;
 }
+.lang {
+  position: relative;
+  padding: 12px;
+  cursor: pointer;
+}
 .langer {
   display: flex;
   align-items: center;
 }
 .icon {
   transform: rotate(90deg);
+}
+.popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  padding: 12px;
+  -webkit-box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.1);
+  -moz-box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.1);
+  box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.1);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  width: 140px;
+  transform: translateY(-100px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  pointer-events: none;
+}
+.lang:hover .popup {
+  pointer-events: initial;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.l {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+.l svg {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+@media screen and (max-width: 1024px) {
 }
 </style>

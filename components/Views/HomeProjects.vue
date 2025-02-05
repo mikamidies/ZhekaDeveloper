@@ -1,11 +1,12 @@
 <template>
   <div class="wrap">
+    <div class="anchor" id="projects"></div>
     <div class="container">
       <div class="left">
         <SectionTitle :title="`My Projects`" :number="`04`" />
       </div>
 
-      <button class="about">
+      <button @click="scrollElement('contact')" class="about">
         <p>Contact me!</p>
       </button>
     </div>
@@ -16,6 +17,35 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+function scrollHeader() {
+  const navbar = document.getElementById("navbar");
+  if (window.scrollY >= 50) {
+    navbar.classList.add("scroll");
+  } else {
+    navbar.classList.remove("scroll");
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", scrollHeader);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollHeader);
+});
+
+const menuHandle = ref(false);
+
+const scrollElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+  menuHandle.value = false;
+};
+
 const projects = [
   {
     sup: "Frontend",
@@ -51,6 +81,9 @@ const projects = [
 <style scoped>
 .wrap {
   background: white;
+}
+.anchor {
+  transform: translateY(-140px);
 }
 .container {
   border-inline: 1px solid var(--border);

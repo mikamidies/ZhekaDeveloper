@@ -34,7 +34,7 @@ const props = defineProps({
 onMounted(() => {
   new Swiper(".swiper", {
     modules: [Autoplay, Pagination],
-    slidesPerView: 1.2,
+    slidesPerView: 1.3,
     spaceBetween: 12,
     loop: true,
     autoplay: {
@@ -130,13 +130,14 @@ onMounted(() => {
   }
   .swiper-slide {
     height: 160px;
+    padding: 24px;
   }
   .title {
     font-size: 18px;
   }
   .sup {
-    font-size: 14px;
-    margin-bottom: 0;
+    font-size: 13px;
+    margin-bottom: 4px;
   }
 }
 </style>

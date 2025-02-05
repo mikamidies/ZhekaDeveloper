@@ -8,7 +8,18 @@
           <img src="/assets/img/brand-white.png" class="white" alt="" />
         </button>
       </div>
-      <div class="right">
+      <div class="burger" @click="menuHandle = !menuHandle">
+        <div class="stick"></div>
+      </div>
+      <div class="right" :class="{ active: menuHandle }">
+        <div class="mobile_brand">
+          <img src="/assets/img/brand.png" class="mobile_original" alt="" />
+
+          <div class="x" @click="menuHandle = false">
+            <div class="x_stick"></div>
+          </div>
+        </div>
+
         <div class="links">
           <button @click="scrollElement('about')" class="link">About</button>
           <button @click="scrollElement('skills')" class="link">Skills</button>
@@ -39,6 +50,12 @@
               O'zbekcha <Icon class="flag" icon="circle-flags:uz" />
             </button>
           </div>
+        </div>
+
+        <div class="mobile_lang">
+          <button class="mobile_l active">Русский</button>
+          <button class="mobile_l">English</button>
+          <button class="mobile_l">O'zbekcha</button>
         </div>
       </div>
     </div>
@@ -204,14 +221,145 @@ const scrollElement = (id) => {
   border: 1px solid var(--border);
   border-radius: 50%;
 }
+.mobile_l,
+.mobile_brand,
+.burger {
+  display: none;
+}
 @media screen and (max-width: 1024px) {
-  .wrap {
-    display: none;
+  .mobile_l,
+  .mobile_brand {
+    display: flex;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+  .brand {
+    width: 120px;
   }
   .right {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+    gap: 32px;
+    transition: 0.4s;
+    transform: translateX(-100%);
+  }
+  .right.active {
+    transform: translateX(0);
+  }
+  .links {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .link {
+    width: 100%;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--black);
+    text-align: start;
+  }
+  .lang {
+    display: none;
+  }
+  .mobile_original {
+    width: 120px;
+  }
+  .mobile_lang {
+    width: 100%;
+    background: var(--border);
+    padding: 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mobile_l {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 4px;
+  }
+  .mobile_l.active {
+    background: white;
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .burger {
+    display: flex;
+  }
+  .stick {
+    width: 32px;
+    height: 2px;
+    background: white;
+    position: relative;
+  }
+  .stick::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: white;
+  }
+  .stick::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: white;
+  }
+  .scroll .stick,
+  .scroll .stick::after,
+  .scroll .stick::before {
+    background: var(--black);
+  }
+  .mobile_brand {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .x_stick {
+    width: 30px;
+    height: 2px;
+    background: var(--black);
+    transform: rotate(45deg);
+  }
+  .x_stick::after {
+    width: 30px;
+    height: 2px;
+    background: var(--black);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+  }
+  .scroll {
+    padding: 16px 0;
+  }
+  .left {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

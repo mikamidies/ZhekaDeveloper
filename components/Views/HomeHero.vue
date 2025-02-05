@@ -147,7 +147,7 @@ const scrollElement = (id) => {
 }
 @media screen and (max-width: 1024px) {
   .wrap {
-    height: 400px;
+    height: 500px;
   }
   .title {
     font-size: 24px;

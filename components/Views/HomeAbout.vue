@@ -222,4 +222,58 @@
   line-height: 150%;
   opacity: 0.8;
 }
+@media screen and (max-width: 1024px) {
+  .container {
+    padding-block: 32px;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+  .image::after {
+    display: none;
+  }
+  .block {
+    transform: translate(0);
+    width: 100%;
+    height: 220px;
+  }
+  .num {
+    font-size: 120px;
+    line-height: 110%;
+  }
+  .sub {
+    font-size: 14px;
+  }
+  .right {
+    padding: 0;
+  }
+  .title {
+    font-size: 26px;
+    line-height: 34px;
+    margin: 16px 0;
+  }
+  .text {
+    font-size: 14px;
+    line-height: 180%;
+    padding: 0;
+  }
+  .text::after {
+    display: none;
+  }
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px 0;
+    gap: 12px;
+  }
+  .item {
+    padding: 24px 12px;
+  }
+  .value {
+    font-size: 20px;
+  }
+  .desc {
+    font-size: 12px;
+  }
+}
 </style>

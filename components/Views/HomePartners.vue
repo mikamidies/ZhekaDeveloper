@@ -54,15 +54,21 @@ import "swiper/swiper-bundle.css";
 onMounted(() => {
   new Swiper(".partnersSwiper", {
     modules: [Autoplay, Navigation],
-    slidesPerView: 4,
-    spaceBetween: 16,
+    slidesPerView: 2,
+    spaceBetween: 8,
     loop: true,
     autoplay: {
-      delay: 1000,
+      delay: 3000,
     },
     navigation: {
       nextEl: ".partnersNext",
       prevEl: ".partnersPrev",
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 16,
+      },
     },
   });
 });
@@ -166,5 +172,27 @@ onMounted(() => {
 .partnersNext :deep(path),
 .partnersPrev :deep(path) {
   fill: white;
+}
+@media screen and (max-width: 1024px) {
+  .wrap {
+    overflow: hidden;
+  }
+  .container {
+    padding: 32px 12px;
+  }
+  .white_num {
+    text-align: start;
+  }
+  .partnersSwiper {
+    margin-top: 16px;
+    overflow: visible;
+  }
+  .partnersNext,
+  .partnersPrev {
+    display: none;
+  }
+  .swiper-slide {
+    height: 120px;
+  }
 }
 </style>

@@ -238,4 +238,33 @@ textarea:focus {
 .agree {
   margin-top: 24px;
 }
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 26px;
+    line-height: 34px;
+    margin-bottom: 16px;
+  }
+  .inputs {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .holder svg {
+    top: 16px;
+  }
+  .warn {
+    font-size: 14px;
+  }
+  .submit {
+    padding: 14px 0;
+    width: 100%;
+  }
+  .submit::after {
+    transform: translateX(0);
+  }
+  .submit p {
+    color: var(--blue);
+    font-size: 14px;
+  }
+}
 </style>

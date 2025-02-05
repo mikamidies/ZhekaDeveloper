@@ -245,4 +245,25 @@ const scrollElement = (id) => {
   color: var(--black);
   opacity: 0.6;
 }
+@media screen and (max-width: 1024px) {
+  .wrap {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 32px 0;
+  }
+  .soc {
+    background: transparent;
+    border: 1px solid var(--border);
+  }
+  .bottom .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .info {
+    font-size: 12px;
+  }
+}
 </style>

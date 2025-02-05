@@ -270,4 +270,49 @@ function startProgressBar() {
   background: var(--blue);
   width: 20px;
 }
+@media screen and (max-width: 1024px) {
+  .swiper-slide {
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .cont {
+    max-width: 100%;
+    min-width: initial;
+  }
+  .right {
+    position: static;
+    transform: translate(0);
+    width: 100%;
+    height: 260px;
+  }
+  .left {
+    padding: 24px 12px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 150%;
+    margin-bottom: 8px;
+  }
+  .sup {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .desc {
+    margin-bottom: 16px;
+  }
+  .link {
+    padding: 12px 24px;
+  }
+  .link p {
+    font-size: 12px;
+  }
+  .progress-bar {
+    display: none;
+  }
+  .projectsPagination {
+    display: none;
+  }
+}
 </style>

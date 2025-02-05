@@ -5,6 +5,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook("app:mounted", () => {
     AOS.init({
       once: false,
+      disable: "mobile",
     });
   });
 });

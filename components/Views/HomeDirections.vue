@@ -3,7 +3,11 @@
     <div class="anchor" id="directions"></div>
     <div class="container">
       <div class="left">
-        <SectionTitle :title="`Directions of work`" :number="`03`" />
+        <SectionTitle
+          class="tite"
+          :title="`Directions of work`"
+          :number="`03`"
+        />
       </div>
 
       <button @click="scrollElement('contact')" class="about">
@@ -40,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="container" style="padding-bottom: 28px"></div>
+    <div class="container what" style="padding-bottom: 28px"></div>
   </div>
 </template>
 
@@ -230,5 +234,46 @@ const scrollElement = (id) => {
 }
 .left {
   width: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 32px 0;
+  }
+  .about {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    width: 100%;
+    height: 300px;
+  }
+  .item:hover {
+    width: 100%;
+  }
+  .item:hover .pic {
+    transform: scale(1);
+  }
+  .item:hover .content {
+    left: 0;
+    bottom: 0;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .item:hover .title {
+    font-size: 24px;
+  }
+  .item::after {
+    opacity: 0.4;
+  }
+  .what {
+    display: none;
+  }
 }
 </style>

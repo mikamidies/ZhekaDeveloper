@@ -115,7 +115,7 @@ const scrollElement = (id) => {
   background: white;
   z-index: 1;
   transition: 0.4s;
-  transform: translateX(-100%);
+  transform: translateX(-105%);
 }
 .about:hover::after {
   transform: translateX(0);
@@ -143,6 +143,28 @@ const scrollElement = (id) => {
   }
   100% {
     bottom: 56px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrap {
+    height: 400px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: normal;
+  }
+  .about {
+    padding: 12px 24px;
+  }
+  .about p {
+    font-size: 12px;
+  }
+  .video {
+    object-fit: cover;
+  }
+  .down {
+    display: none;
   }
 }
 </style>

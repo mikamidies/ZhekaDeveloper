@@ -121,3 +121,15 @@ body {
   text-decoration: underline;
   font-size: 18px;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding-inline: 12px !important;
+    border-inline: 0 !important;
+    border-block: 0 !important;
+  }
+  .container::after {
+    display: none !important;
+  }
+}

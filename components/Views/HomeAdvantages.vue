@@ -119,4 +119,35 @@
 .item:last-child {
   margin-right: -1px;
 }
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 32px 12px;
+  }
+  .subtitle {
+    display: none;
+  }
+  .sec_tit {
+    width: 100%;
+  }
+  .header {
+    padding-bottom: 16px;
+  }
+  .items {
+    padding-top: 0px;
+    grid-template-columns: repeat(1, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .item {
+    background: white;
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    margin-bottom: 8px;
+  }
+  .sub {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
 </style>

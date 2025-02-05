@@ -34,8 +34,8 @@ const props = defineProps({
 onMounted(() => {
   new Swiper(".swiper", {
     modules: [Autoplay, Pagination],
-    slidesPerView: 3,
-    spaceBetween: 32,
+    slidesPerView: 1.2,
+    spaceBetween: 12,
     loop: true,
     autoplay: {
       delay: 3000,
@@ -45,6 +45,12 @@ onMounted(() => {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
     },
   });
 });
@@ -110,5 +116,27 @@ onMounted(() => {
 }
 .swiper-pagination :deep(.swiper-pagination-bullet-active) {
   background: var(--blue);
+}
+@media screen and (max-width: 1024px) {
+  .swiper {
+    margin-top: 16px;
+  }
+  .comp {
+    padding-bottom: 32px;
+  }
+  .img {
+    width: 80px;
+    height: 80px;
+  }
+  .swiper-slide {
+    height: 160px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .sup {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
 }
 </style>

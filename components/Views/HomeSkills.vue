@@ -72,11 +72,23 @@ const slides = [
   position: absolute;
   object-fit: cover;
   opacity: 0.2;
+  pointer-events: none;
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex: 1;
+}
+@media screen and (max-width: 1024px) {
+  .wrap {
+    padding: 32px 0;
+  }
+  .subtitle {
+    display: none;
+  }
+  .white_num {
+    width: 100%;
+  }
 }
 </style>

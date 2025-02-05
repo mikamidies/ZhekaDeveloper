@@ -49,4 +49,10 @@ export default {
   background: var(--blue);
   content: "";
 }
+@media screen and (max-width: 1024px) {
+  .num {
+    font-size: 70px;
+    line-height: 120%;
+  }
+}
 </style>

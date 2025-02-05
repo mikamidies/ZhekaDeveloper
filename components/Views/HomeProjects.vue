@@ -148,4 +148,15 @@ const projects = [
 .about:hover p {
   color: var(--blue);
 }
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 32px 0;
+  }
+  .about {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+}
 </style>

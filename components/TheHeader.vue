@@ -205,5 +205,13 @@ const scrollElement = (id) => {
   border-radius: 50%;
 }
 @media screen and (max-width: 1024px) {
+  .wrap {
+    display: none;
+  }
+  .right {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
 </style>

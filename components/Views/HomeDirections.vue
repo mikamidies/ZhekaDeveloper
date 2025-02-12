@@ -15,32 +15,11 @@
       </button>
     </div>
     <div class="items" data-aos="fade-up">
-      <div class="item">
-        <img src="/public/assets/img/serv-1.jpg" alt="" class="pic" />
+      <div class="item" v-for="item in directions" :key="item.id">
+        <img :src="item.image" alt="" class="pic" />
         <div class="content">
           <p class="sup">Solutions</p>
-          <h4 class="title">Frontend</h4>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/public/assets/img/serv-2.jpg" alt="" class="pic" />
-        <div class="content">
-          <p class="sup">Solutions</p>
-          <h4 class="title">Backend</h4>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/public/assets/img/serv-3.jpg" alt="" class="pic" />
-        <div class="content">
-          <p class="sup">Solutions</p>
-          <h4 class="title">Game Dev</h4>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/public/assets/img/serv-4.jpg" alt="" class="pic" />
-        <div class="content">
-          <p class="sup">Solutions</p>
-          <h4 class="title">Graphic design</h4>
+          <h4 class="title">{{ item.title }}</h4>
         </div>
       </div>
     </div>
@@ -50,6 +29,13 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+
+const props = defineProps({
+  directions: {
+    type: Array,
+    required: true,
+  },
+});
 
 function scrollHeader() {
   const navbar = document.getElementById("navbar");

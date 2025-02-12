@@ -46,36 +46,12 @@ const scrollElement = (id) => {
   menuHandle.value = false;
 };
 
-const projects = [
-  {
-    sup: "Frontend",
-    title: "Uzbekistan Airways Tech",
-    link: "https://airtech.uz",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, a! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, a!",
-    image: "/assets/img/port-1.webp",
+const props = defineProps({
+  projects: {
+    type: Array,
+    required: true,
   },
-  {
-    sup: "Frontend",
-    title: "Orzu osh tuzi",
-    link: "https://okc.uz",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, a! Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
-    image: "/assets/img/port-2.webp",
-  },
-  {
-    sup: "Frontend",
-    title: "Hajtex",
-    link: "https://okc.uz",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, a! Enim, a!Enim, a!",
-    image: "/assets/img/port-3.webp",
-  },
-  {
-    sup: "Frontend",
-    title: "Polimer Group Asia",
-    link: "https://okc.uz",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, a dolor sit amet consectetur adipisicing elit. Enim, adolor sit amet consectetur adipisicing elit. Enim, a!",
-    image: "/assets/img/port-4.webp",
-  },
-];
+});
 </script>
 
 <style scoped>

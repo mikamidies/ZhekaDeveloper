@@ -13,13 +13,20 @@
       </div>
 
       <div class="aoser" data-aos="fade-up">
-        <Swiper :slides="slides" />
+        <Swiper :skills="skills" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+const props = defineProps({
+  skills: {
+    type: Array,
+    required: true,
+  },
+});
+
 const slides = [
   {
     sup: "Frontend",

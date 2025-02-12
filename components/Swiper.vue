@@ -2,11 +2,11 @@
   <div class="comp">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(slide, index) in slides" :key="index">
+        <div class="swiper-slide" v-for="(slide, index) in skills" :key="index">
           <div class="left">
             <p class="sup">
               <Icon icon="ic:baseline-settings" />
-              {{ slide.sup }}
+              {{ slide.text }}
             </p>
             <h3 class="title">{{ slide.title }}</h3>
           </div>
@@ -25,7 +25,7 @@ import Swiper from "swiper";
 import { Autoplay, Pagination } from "swiper/modules";
 
 const props = defineProps({
-  slides: {
+  skills: {
     type: Array,
     required: true,
   },

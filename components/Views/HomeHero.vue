@@ -9,9 +9,9 @@
       class="video"
     ></video>
     <div class="container">
-      <h4 class="title">Independent <span>Frontend</span> Developer</h4>
+      <h4 class="title"></h4>
       <button @click="scrollElement('about')" class="about">
-        <p>About me</p>
+        <p></p>
       </button>
     </div>
     <button @click="scrollElement('about')" class="down">

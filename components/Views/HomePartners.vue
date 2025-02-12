@@ -10,29 +10,8 @@
 
         <div class="partnersSwiper" data-aos="fade-up" data-aos-duration="300">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="/assets/img/part-1.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-2.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-3.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-4.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-5.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-6.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-7.png" alt="" class="pic" />
-            </div>
-            <div class="swiper-slide">
-              <img src="/assets/img/part-8.png" alt="" class="pic" />
+            <div class="swiper-slide" v-for="item in partners" :key="item.id">
+              <img :src="item.image" alt="" class="pic" />
             </div>
           </div>
         </div>
@@ -71,6 +50,13 @@ onMounted(() => {
       },
     },
   });
+});
+
+const props = defineProps({
+  partners: {
+    type: Array,
+    required: true,
+  },
 });
 </script>
 

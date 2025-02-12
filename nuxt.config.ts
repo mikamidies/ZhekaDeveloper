@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -20,4 +19,6 @@ export default defineNuxtConfig({
   },
 
   css: ["public/assets/css/main.css", "swiper/swiper-bundle.css"],
+
+  modules: ["@nuxtjs/i18n", "@pinia/nuxt"],
 });

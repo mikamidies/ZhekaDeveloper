@@ -76,6 +76,7 @@
 <style scoped>
 .wrap {
   background: white;
+  overflow: hidden;
 }
 .container {
   border-inline: 1px solid var(--border);

@@ -39,17 +39,7 @@
             Ru
             <Icon class="icon" icon="material-symbols:chevron-right-rounded" />
           </button>
-          <div class="popup">
-            <button class="l">
-              Русский <Icon class="flag" icon="circle-flags:ru" />
-            </button>
-            <button class="l">
-              English <Icon class="flag" icon="circle-flags:en" />
-            </button>
-            <button class="l">
-              O'zbekcha <Icon class="flag" icon="circle-flags:uz" />
-            </button>
-          </div>
+          <div class="popup"></div>
         </div>
 
         <div class="mobile_lang">

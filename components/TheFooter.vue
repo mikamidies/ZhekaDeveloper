@@ -88,6 +88,9 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 
 function scrollHeader() {
   const navbar = document.getElementById("navbar");

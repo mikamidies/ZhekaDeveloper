@@ -5,13 +5,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: "",
-    number: "",
+<script setup>
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: "",
   },
-};
+  number: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <style scoped>

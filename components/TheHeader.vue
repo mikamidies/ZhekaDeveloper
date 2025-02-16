@@ -21,7 +21,9 @@
         </div>
 
         <div class="links">
-          <button @click="scrollElement('about')" class="link">About</button>
+          <button @click="scrollElement('about')" class="link">
+            {{ t("main.title") }}
+          </button>
           <button @click="scrollElement('skills')" class="link">Skills</button>
           <button @click="scrollElement('directions')" class="link">
             Directions
@@ -34,18 +36,47 @@
           </button>
         </div>
 
-        <div class="lang">
+        <div v-if="isReady" class="lang">
           <button class="langer">
-            Ru
+            {{ currentLang }}
             <Icon class="icon" icon="material-symbols:chevron-right-rounded" />
           </button>
-          <div class="popup"></div>
+          <div class="popup">
+            <button
+              class="l"
+              v-for="lang in languages"
+              :key="lang.code"
+              @click="changeLanguage(lang.code)"
+              :class="{ active: lang.code === currentLang }"
+              :disabled="isLoading"
+            >
+              {{ lang.name }} <Icon :icon="lang.icon" />
+            </button>
+          </div>
         </div>
 
-        <div class="mobile_lang">
-          <button class="mobile_l active">Русский</button>
-          <button class="mobile_l">English</button>
-          <button class="mobile_l">O'zbekcha</button>
+        <div v-if="isReady" class="mobile_lang">
+          <button
+            @click="changeLanguage('ru'), (menuHandle = false)"
+            class="mobile_l"
+            :class="{ active: currentLang == 'ru' }"
+          >
+            Русский
+          </button>
+          <button
+            @click="changeLanguage('en'), (menuHandle = false)"
+            class="mobile_l"
+            :class="{ active: currentLang == 'en' }"
+          >
+            English
+          </button>
+          <button
+            @click="changeLanguage('uz'), (menuHandle = false)"
+            class="mobile_l"
+            :class="{ active: currentLang == 'uz' }"
+          >
+            O'zbekcha
+          </button>
         </div>
       </div>
     </div>
@@ -53,7 +84,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { useTranslationsStore } from "~/stores/translations";
+import { storeToRefs } from "pinia";
 
 function scrollHeader() {
   const navbar = document.getElementById("navbar");
@@ -80,6 +113,27 @@ const scrollElement = (id) => {
     element.scrollIntoView({ block: "start", behavior: "smooth" });
   }
   menuHandle.value = false;
+};
+
+const translationsStore = useTranslationsStore();
+const { isLoading } = storeToRefs(translationsStore);
+const { t } = translationsStore;
+const currentLang = computed(() => translationsStore.currentLang);
+const isReady = ref(false);
+
+onMounted(async () => {
+  await translationsStore.hydrate();
+  isReady.value = true;
+});
+
+const languages = [
+  { code: "en", name: "English", icon: "circle-flags:gb" },
+  { code: "ru", name: "Russian", icon: "circle-flags:ru" },
+  { code: "uz", name: "Uzbek", icon: "circle-flags:uz" },
+];
+
+const changeLanguage = async (lang) => {
+  await translationsStore.setLanguage(lang);
 };
 </script>
 
@@ -204,6 +258,9 @@ const scrollElement = (id) => {
   gap: 8px;
   justify-content: space-between;
   width: 100%;
+}
+.l.active {
+  color: var(--blue);
 }
 .l svg {
   width: 20px;

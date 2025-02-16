@@ -45,6 +45,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 
 const isChecked = ref(false);
 

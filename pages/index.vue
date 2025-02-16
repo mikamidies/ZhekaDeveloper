@@ -1,5 +1,9 @@
 <template>
   <div class="site">
+    <transition name="fade" mode="out-in">
+      <Spinner v-if="!isReady || isLoading" />
+    </transition>
+
     <TheHeader />
     <main>
       <HomeHero />
@@ -24,7 +28,40 @@ import HomeProjects from "~/components/Views/HomeProjects.vue";
 import HomeAdvantages from "~/components/Views/HomeAdvantages.vue";
 import HomeForm from "~/components/Views/HomeForm.vue";
 import HomePartners from "~/components/Views/HomePartners.vue";
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useTranslationsStore } from "~/stores/translations";
+import { storeToRefs } from "pinia";
+import Spinner from "~/components/Spinner.vue";
+
+const translationsStore = useTranslationsStore();
+const { isLoading, currentLang } = storeToRefs(translationsStore);
+const isReady = ref(false);
+
+const t = (key) => {
+  return translationsStore.t(key);
+};
+
+const initialize = async () => {
+  if (process.client) {
+    translationsStore.hydrate();
+  }
+  await translationsStore.fetchTranslations(
+    translationsStore.currentLang || "en"
+  );
+  isReady.value = true;
+};
+
+initialize();
+
+const changeLanguage = async (lang) => {
+  isReady.value = false;
+  await translationsStore.setLanguage(lang);
+  isReady.value = true;
+};
+
+onMounted(async () => {
+  fetchItems();
+});
 
 const directions = ref([]);
 const skills = ref([]);
@@ -42,14 +79,25 @@ const fetchItems = async () => {
     const partnersData = await useNuxtApp().$axios.get("/reviews");
     partners.value = partnersData.data.results;
 
-    const projectsData = await useNuxtApp().$axios.get("/tarifs");
+    const projectsData = await useNuxtApp().$axios.get("/projects");
     projects.value = projectsData.data.results;
   } catch (error) {
     console.error("Error fetching items:", error);
   }
 };
-
-onMounted(() => {
-  fetchItems();
-});
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+</style>

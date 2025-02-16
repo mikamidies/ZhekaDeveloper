@@ -9,9 +9,9 @@
       class="video"
     ></video>
     <div class="container">
-      <h4 class="title"></h4>
+      <h4 class="title">{{ t("main.title") }}</h4>
       <button @click="scrollElement('about')" class="about">
-        <p></p>
+        <p>{{ t("main.subtitle") }}</p>
       </button>
     </div>
     <button @click="scrollElement('about')" class="down">
@@ -22,7 +22,9 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 const menuHandle = ref(false);
 
 const scrollElement = (id) => {

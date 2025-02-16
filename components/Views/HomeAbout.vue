@@ -73,6 +73,12 @@
   </div>
 </template>
 
+<script setup>
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
+</script>
+
 <style scoped>
 .wrap {
   background: white;

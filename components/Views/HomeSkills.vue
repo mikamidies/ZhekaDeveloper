@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 const props = defineProps({
   skills: {
     type: Array,

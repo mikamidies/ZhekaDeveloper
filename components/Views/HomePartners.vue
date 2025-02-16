@@ -29,6 +29,9 @@ import { onMounted, ref } from "vue";
 import Swiper from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 
 onMounted(() => {
   new Swiper(".partnersSwiper", {

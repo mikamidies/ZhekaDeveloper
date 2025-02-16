@@ -29,6 +29,9 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useTranslationsStore } from "~/stores/translations";
+const translationsStore = useTranslationsStore();
+const { t } = translationsStore;
 
 const props = defineProps({
   directions: {

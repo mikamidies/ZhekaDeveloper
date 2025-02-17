@@ -16,9 +16,7 @@
               <h4 class="title">
                 {{ project.title }}
               </h4>
-              <p class="desc">
-                {{ project.desc }}
-              </p>
+              <p class="desc" v-html="project.desc"></p>
               <a
                 :href="project.link"
                 target="_blank"
@@ -26,7 +24,7 @@
                 class="link"
               >
                 <p>
-                  {{ project.link }}
+                  {{ formatUrl(project.link) }}
                 </p>
               </a>
             </div>
@@ -95,6 +93,21 @@ function startProgressBar() {
 
   progressBar.style.transition = "width 5s linear";
   progressBar.style.width = "100%";
+}
+
+function formatUrl(url, maxLength = 20) {
+  try {
+    let formattedUrl = url.replace(/^https?:\/\//, "");
+
+    if (formattedUrl.length > maxLength) {
+      formattedUrl = formattedUrl.substring(0, maxLength) + "...";
+    }
+
+    return formattedUrl;
+  } catch (error) {
+    console.error("Ошибка форматирования URL:", error);
+    return url;
+  }
 }
 </script>
 
@@ -280,6 +293,7 @@ function startProgressBar() {
   .cont {
     max-width: 100%;
     min-width: initial;
+    width: 100%;
   }
   .right {
     position: static;

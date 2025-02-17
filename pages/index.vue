@@ -28,13 +28,13 @@ import HomeProjects from "~/components/Views/HomeProjects.vue";
 import HomeAdvantages from "~/components/Views/HomeAdvantages.vue";
 import HomeForm from "~/components/Views/HomeForm.vue";
 import HomePartners from "~/components/Views/HomePartners.vue";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch, watchEffect } from "vue";
 import { useTranslationsStore } from "~/stores/translations";
 import { storeToRefs } from "pinia";
 import Spinner from "~/components/Spinner.vue";
 
 const translationsStore = useTranslationsStore();
-const { isLoading, currentLang } = storeToRefs(translationsStore);
+const { currentLang } = storeToRefs(translationsStore);
 const isReady = ref(false);
 
 const t = (key) => {
@@ -67,24 +67,36 @@ const directions = ref([]);
 const skills = ref([]);
 const partners = ref([]);
 const projects = ref([]);
+const isLoading = ref(false);
+
+const { $axios } = useNuxtApp();
 
 const fetchItems = async () => {
+  isLoading.value = true;
+
   try {
-    const directionsData = await useNuxtApp().$axios.get("/reasons");
+    const headers = { Language: translationsStore.currentLang };
+
+    const [directionsData, skillsData, partnersData, projectsData] =
+      await Promise.all([
+        $axios.get("/reasons", { headers }),
+        $axios.get("/workers", { headers }),
+        $axios.get("/reviews", { headers }),
+        $axios.get("/projects", { headers }),
+      ]);
+
     directions.value = directionsData.data.results;
-
-    const skillsData = await useNuxtApp().$axios.get("/workers");
     skills.value = skillsData.data.results;
-
-    const partnersData = await useNuxtApp().$axios.get("/reviews");
     partners.value = partnersData.data.results;
-
-    const projectsData = await useNuxtApp().$axios.get("/projects");
     projects.value = projectsData.data.results;
   } catch (error) {
-    console.error("Error fetching items:", error);
+    console.error("Ошибка при загрузке данных:", error);
+  } finally {
+    isLoading.value = false;
   }
 };
+
+watchEffect(fetchItems);
 </script>
 
 <style scoped>

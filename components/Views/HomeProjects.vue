@@ -3,11 +3,11 @@
     <div class="anchor" id="projects"></div>
     <div class="container">
       <div class="left">
-        <SectionTitle :title="`My Projects`" :number="`04`" />
+        <SectionTitle :title="t('main.projects')" :number="`04`" />
       </div>
 
       <button @click="scrollElement('contact')" class="about">
-        <p>Contact me!</p>
+        <p>{{ t("main.contact") }}</p>
       </button>
     </div>
     <div class="slider">

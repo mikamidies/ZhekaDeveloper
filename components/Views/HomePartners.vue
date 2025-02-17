@@ -1,7 +1,11 @@
 <template>
   <div class="wrap">
     <div class="container">
-      <SectionTitle class="white_num" :title="`My Partners`" :number="`07`" />
+      <SectionTitle
+        class="white_num"
+        :title="t('main.partners')"
+        :number="`07`"
+      />
 
       <div class="el">
         <div class="partnersPrev">

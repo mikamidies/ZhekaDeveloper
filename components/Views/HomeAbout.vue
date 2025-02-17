@@ -8,22 +8,18 @@
               <img src="/public/assets/img/about.jpg" alt="" class="pic" />
               <div class="numbers">
                 <p class="num">6</p>
-                <p class="sub">Years of experience!</p>
+                <p class="sub">{{ t("main.about_xp") }}</p>
               </div>
             </div>
           </div>
         </div>
         <div class="right" data-aos="fade-left">
-          <SectionTitle :title="`About me`" :number="`01`" />
+          <SectionTitle :title="t('main.about')" :number="`01`" />
           <h4 class="title">
-            High quality <br />
-            projects since 2019
+            {{ t("main.about_title") }}
           </h4>
           <p class="text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis
-            officia harum aliquid enim recusandae sapiente omnis laboriosam
-            nostrum sequi, quidem tempore eius a doloribus. Sed recusandae
-            nostrum dolore repellendus nulla praesentium culpa?
+            {{ t("main.about_txt") }}
           </p>
         </div>
       </div>
@@ -33,39 +29,36 @@
           <div class="logo">
             <Icon icon="material-symbols:nest-clock-farsight-analog-outline" />
           </div>
-          <p class="value">5+ Years</p>
+          <p class="value">{{ t("main.about_card-t1") }}</p>
           <p class="desc">
-            Creating technical expertise with creative vision to bring unique
-            ideas to life.
+            {{ t("main.about_card-s1") }}
           </p>
         </div>
         <div class="item" data-aos="fade-up" data-aos-duration="400">
           <div class="logo">
             <Icon icon="material-symbols:download-done-rounded" />
           </div>
-          <p class="value">50+ Projects</p>
+          <p class="value">{{ t("main.about_card-t2") }}</p>
           <p class="desc">
-            I’ve successfully delivered over 50 projects to satisfied clients
-            worldwide.
+            {{ t("main.about_card-s2") }}
           </p>
         </div>
         <div class="item" data-aos="fade-up" data-aos-duration="500">
           <div class="logo">
             <Icon icon="material-symbols:sentiment-very-satisfied-outline" />
           </div>
-          <p class="value">100% Satisfied</p>
+          <p class="value">{{ t("main.about_card-t3") }}</p>
           <p class="desc">
-            Focus on quality and personalized approach ensures every client gets
-            a solution for their needs
+            {{ t("main.about_card-s3") }}
           </p>
         </div>
         <div class="item" data-aos="fade-up" data-aos-duration="500">
           <div class="logo">
-            <Icon icon="material-symbols:counter-3-outline" />
+            <Icon icon="material-symbols:counter-4-outline" />
           </div>
-          <p class="value">3 Core Areas</p>
+          <p class="value">{{ t("main.about_card-t4") }}</p>
           <p class="desc">
-            From websites and games to Telegram bots and graphic designs
+            {{ t("main.about_card-s4") }}
           </p>
         </div>
       </div>
@@ -170,6 +163,7 @@ const { t } = translationsStore;
   font: 36px "Montserrat", sans-serif;
   font-weight: 700;
   line-height: 46px;
+  max-width: 500px;
 }
 .text {
   font: 16px "Montserrat", sans-serif;

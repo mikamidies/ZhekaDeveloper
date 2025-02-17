@@ -5,11 +5,11 @@
     <div class="container">
       <div class="header">
         <SectionTitle
-          :title="`Mastered Skills`"
+          :title="t('main.skills')"
           :number="`02`"
           class="white_num"
         />
-        <p class="subtitle">Skills that I mastered!</p>
+        <p class="subtitle">{{ t("main.skills_txt") }}</p>
       </div>
 
       <div class="aoser" data-aos="fade-up">

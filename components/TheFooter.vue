@@ -4,11 +4,9 @@
     <div class="container">
       <div class="grid">
         <div class="item">
-          <h4 class="title">About me</h4>
+          <h4 class="title">{{ t("main.about") }}</h4>
           <p class="sub">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quia
-            quasi iusto. Molestiae a temporibus aut impedit nostrum repudiandae
-            tempore.
+            {{ t("main.footer_txt") }}
           </p>
           <div class="socials">
             <a href="#" class="soc">
@@ -26,50 +24,50 @@
           </div>
         </div>
         <div class="item">
-          <h4 class="title">Menu</h4>
+          <h4 class="title">{{ t("main.menu") }}</h4>
           <div class="links">
             <button @click="scrollElement('about')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              About me
+              {{ t("main.about") }}
             </button>
             <button @click="scrollElement('skills')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              Mastered skills
+              {{ t("main.skills") }}
             </button>
             <button @click="scrollElement('directions')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              Directions of work
+              {{ t("main.directions") }}
             </button>
             <button @click="scrollElement('projects')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              My Projects
+              {{ t("main.projects") }}
             </button>
             <button @click="scrollElement('contact')" class="link">
               <Icon icon="ic:round-chevron-right" />
-              Contact me
+              {{ t("main.contact") }}
             </button>
           </div>
         </div>
         <div class="item">
-          <h4 class="title">Contacts</h4>
+          <h4 class="title">{{ t("main.contacts") }}</h4>
           <div class="contacts">
             <div class="con">
               <Icon icon="material-symbols:home-outline-rounded" />
-              Tashkent, Uzbekistan
+              {{ t("main.address") }}
             </div>
             <div class="con">
               <Icon icon="material-symbols:mail-outline" />
-              info@zhekadeveloper.com
+              {{ t("main.email") }}
             </div>
             <div class="con">
               <Icon icon="material-symbols:phone-in-talk-outline" />
-              +998 90 140 00 00
+              {{ t("main.number") }}
             </div>
             <div class="con">
               <Icon
                 icon="material-symbols:nest-clock-farsight-analog-outline-rounded"
               />
-              24 / 7
+              {{ t("main.time") }}
             </div>
           </div>
         </div>
@@ -77,10 +75,10 @@
     </div>
     <div class="bottom">
       <div class="container">
-        <p class="info">ZhekaDeveloper @ 2025 All rights reserved</p>
-        <a href="#" target="_blank" class="info"
-          >Terms of Personal data usage</a
-        >
+        <p class="info">
+          ZhekaDeveloper @ {{ new Date().getFullYear() }} {{ t("main.rights") }}
+        </p>
+        <a href="#" target="_blank" class="info">{{ t("main.policy") }}</a>
       </div>
     </div>
   </div>

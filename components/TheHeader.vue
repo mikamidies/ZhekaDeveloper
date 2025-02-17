@@ -22,17 +22,19 @@
 
         <div class="links">
           <button @click="scrollElement('about')" class="link">
-            {{ t("main.title") }}
+            {{ t("main.about") }}
           </button>
-          <button @click="scrollElement('skills')" class="link">Skills</button>
+          <button @click="scrollElement('skills')" class="link">
+            {{ t("main.skills") }}
+          </button>
           <button @click="scrollElement('directions')" class="link">
-            Directions
+            {{ t("main.directions") }}
           </button>
           <button @click="scrollElement('projects')" class="link">
-            Projects
+            {{ t("main.projects") }}
           </button>
           <button @click="scrollElement('contact')" class="link">
-            Contact
+            {{ t("main.contact") }}
           </button>
         </div>
 

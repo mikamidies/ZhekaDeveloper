@@ -2,24 +2,24 @@
   <div class="wrap">
     <div class="anchor" id="contact"></div>
     <div class="container">
-      <h4 class="title">Contact me</h4>
+      <h4 class="title">{{ t("main.contact") }}</h4>
       <form>
         <div class="inputs">
           <div class="inputter">
-            <input required placeholder="Your name" type="text" />
+            <input required :placeholder="t('main.your_name')" type="text" />
             <Icon icon="ic:twotone-person-outline" />
           </div>
           <div class="inputter">
-            <input required placeholder="Your number" type="text" />
+            <input required :placeholder="t('main.your_number')" type="text" />
             <Icon icon="ic:twotone-local-phone" />
           </div>
           <div class="inputter">
-            <input placeholder="Your email" type="text" />
+            <input :placeholder="t('main.your_email')" type="text" />
             <Icon icon="ic:twotone-email" />
           </div>
         </div>
         <div class="holder">
-          <textarea placeholder="Enter your message"></textarea>
+          <textarea :placeholder="t('main.desc')"></textarea>
           <Icon icon="material-symbols:ink-pen" />
         </div>
         <div class="agree">
@@ -31,12 +31,12 @@
             />
             <span class="custom-checkbox__checkmark"></span>
             <p class="warn">
-              I agree with terms of <strong>Personal data usage</strong>
+              {{ t("main.agree") }}
             </p>
           </label>
         </div>
         <button class="submit" type="submit">
-          <p>Send message</p>
+          <p>{{ t("main.submit") }}</p>
         </button>
       </form>
     </div>

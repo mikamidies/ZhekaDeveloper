@@ -9,9 +9,9 @@
       class="video"
     ></video>
     <div class="container">
-      <h4 class="title">{{ t("main.title") }}</h4>
+      <h4 class="title">{{ t("main.hero_title") }}</h4>
       <button @click="scrollElement('about')" class="about">
-        <p>{{ t("main.subtitle") }}</p>
+        <p>{{ t("main.about") }}</p>
       </button>
     </div>
     <button @click="scrollElement('about')" class="down">

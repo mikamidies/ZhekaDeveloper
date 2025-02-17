@@ -2,8 +2,8 @@
   <div class="wrap">
     <div class="container">
       <div class="header">
-        <SectionTitle class="sec_tit" :title="`Advantages`" :number="`05`" />
-        <p class="subtitle">Why you should work with me?</p>
+        <SectionTitle class="sec_tit" :title="t('main.about')" :number="`05`" />
+        <p class="subtitle">{{ t("main.why_me") }}</p>
       </div>
 
       <div class="items" data-aos="fade-up" data-aos-duration="300">
@@ -11,11 +11,9 @@
           <div class="logo">
             <Icon icon="ic:twotone-computer" />
           </div>
-          <h4 class="title">Professional</h4>
+          <h4 class="title">{{ t("main.adv_t1") }}</h4>
           <p class="sub">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            officia laudantium tenetur impedit consequatur cumque a aperiam
-            aliquam hic consectetur.
+            {{ t("main.adv_s1") }}
           </p>
         </div>
 
@@ -23,11 +21,9 @@
           <div class="logo">
             <Icon icon="ic:round-stars" />
           </div>
-          <h4 class="title">Experience</h4>
+          <h4 class="title">{{ t("main.adv_t2") }}</h4>
           <p class="sub">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            officia laudantium tenetur impedit consequatur cumque a aperiam
-            aliquam hic consectetur.
+            {{ t("main.adv_s2") }}
           </p>
         </div>
 
@@ -35,11 +31,9 @@
           <div class="logo">
             <Icon icon="ic:outline-settings-suggest" />
           </div>
-          <h4 class="title">Equipment</h4>
+          <h4 class="title">{{ t("main.adv_t3") }}</h4>
           <p class="sub">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            officia laudantium tenetur impedit consequatur cumque a aperiam
-            aliquam hic consectetur.
+            {{ t("main.adv_s3") }}
           </p>
         </div>
       </div>

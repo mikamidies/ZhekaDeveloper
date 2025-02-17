@@ -5,13 +5,13 @@
       <div class="left">
         <SectionTitle
           class="tite"
-          :title="`Directions of work`"
+          :title="t('main.directions')"
           :number="`03`"
         />
       </div>
 
       <button @click="scrollElement('contact')" class="about">
-        <p>Contact me!</p>
+        <p>{{ t("main.contact") }}</p>
       </button>
     </div>
     <div class="items" data-aos="fade-up">

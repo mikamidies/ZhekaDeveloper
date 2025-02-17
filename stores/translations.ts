@@ -12,8 +12,6 @@ export const useTranslationsStore = defineStore("translations", {
     async fetchTranslations(lang: string) {
       this.isLoading = true;
 
-      console.log(this.isLoading);
-
       try {
         const response = await $fetch<Record<string, string>>(
           "https://osoncopyapi.pythonanywhere.com/api/translations",

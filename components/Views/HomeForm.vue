@@ -3,23 +3,40 @@
     <div class="anchor" id="contact"></div>
     <div class="container">
       <h4 class="title">{{ t("main.contact") }}</h4>
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="inputs">
           <div class="inputter">
-            <input required :placeholder="t('main.your_name')" type="text" />
+            <input
+              required
+              v-model="form.name"
+              :placeholder="t('main.your_name')"
+              type="text"
+            />
             <Icon icon="ic:twotone-person-outline" />
           </div>
           <div class="inputter">
-            <input required :placeholder="t('main.your_number')" type="text" />
+            <input
+              v-model="form.phone"
+              required
+              :placeholder="t('main.your_number')"
+              type="number"
+            />
             <Icon icon="ic:twotone-local-phone" />
           </div>
           <div class="inputter">
-            <input :placeholder="t('main.your_email')" type="text" />
+            <input
+              v-model="form.email"
+              :placeholder="t('main.your_email')"
+              type="text"
+            />
             <Icon icon="ic:twotone-email" />
           </div>
         </div>
         <div class="holder">
-          <textarea :placeholder="t('main.desc')"></textarea>
+          <textarea
+            v-model="form.message"
+            :placeholder="t('main.desc')"
+          ></textarea>
           <Icon icon="material-symbols:ink-pen" />
         </div>
         <div class="agree">
@@ -30,14 +47,28 @@
               class="custom-checkbox__input"
             />
             <span class="custom-checkbox__checkmark"></span>
-            <p class="warn">
+            <p class="warn" v-if="!checkboxError">
               {{ t("main.agree") }}
+            </p>
+            <p v-if="checkboxError" class="error-message">
+              {{ t("main.have_to_agree") }}
             </p>
           </label>
         </div>
         <button class="submit" type="submit">
-          <p>{{ t("main.submit") }}</p>
+          <p>{{ loading ? t("main.sending") : t("main.submit") }}</p>
         </button>
+
+        <transition name="fade"
+          ><div v-if="successMessage" class="success">
+            {{ successMessage }}
+          </div></transition
+        >
+        <transition name="fade"
+          ><div v-if="errorMessage" class="error">
+            {{ errorMessage }}
+          </div></transition
+        >
       </form>
     </div>
   </div>
@@ -45,18 +76,78 @@
 
 <script setup>
 import { ref } from "vue";
+import { useNuxtApp } from "#app";
 import { useTranslationsStore } from "~/stores/translations";
+
 const translationsStore = useTranslationsStore();
 const { t } = translationsStore;
 
 const isChecked = ref(false);
+const checkboxError = ref(false);
 
-function handleCheckboxChange() {
-  console.log("Checkbox is checked:", isChecked.value);
-}
+const form = ref({
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+});
+
+const loading = ref(false);
+const successMessage = ref("");
+const errorMessage = ref("");
+
+const clearMessages = () => {
+  setTimeout(() => {
+    successMessage.value = "";
+    errorMessage.value = "";
+  }, 5000);
+};
+
+const submitForm = async () => {
+  if (!isChecked.value) {
+    checkboxError.value = true;
+    return;
+  }
+
+  checkboxError.value = false;
+  await submitApplication();
+};
+
+const submitApplication = async () => {
+  loading.value = true;
+  successMessage.value = "";
+  errorMessage.value = "";
+
+  try {
+    const { $axios } = useNuxtApp();
+
+    const response = await $axios.post("/application/create", form.value);
+
+    if (response.status === 201) {
+      successMessage.value = t("main.success");
+      form.value = { name: "", phone: "", email: "", message: "" };
+      isChecked.value = false;
+      clearMessages();
+    }
+  } catch (error) {
+    errorMessage.value = t("main.error");
+    isChecked.value = false;
+    clearMessages();
+  } finally {
+    loading.value = false;
+  }
+};
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 .wrap {
   background: white;
   position: relative;
@@ -179,6 +270,7 @@ function handleCheckboxChange() {
   border-right: 0.5px solid var(--border);
   content: "";
   z-index: 1;
+  pointer-events: none;
 }
 .title {
   display: block;
@@ -240,6 +332,27 @@ textarea:focus {
 }
 .agree {
   margin-top: 24px;
+}
+.success,
+.error {
+  position: fixed;
+  top: 56px;
+  right: 72px;
+  z-index: 999;
+  border-radius: 4px;
+  padding: 18px 32px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+.success {
+  background: #52b788;
+}
+.error {
+  background: #ba181b;
+}
+.error-message {
+  color: #ba181b;
 }
 @media screen and (max-width: 1024px) {
   .title {

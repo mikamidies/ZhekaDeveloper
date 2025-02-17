@@ -105,7 +105,6 @@ function formatUrl(url, maxLength = 20) {
 
     return formattedUrl;
   } catch (error) {
-    console.error("Ошибка форматирования URL:", error);
     return url;
   }
 }

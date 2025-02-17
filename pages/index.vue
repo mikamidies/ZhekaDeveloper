@@ -90,7 +90,6 @@ const fetchItems = async () => {
     partners.value = partnersData.data.results;
     projects.value = projectsData.data.results;
   } catch (error) {
-    console.error("Ошибка при загрузке данных:", error);
   } finally {
     isLoading.value = false;
   }

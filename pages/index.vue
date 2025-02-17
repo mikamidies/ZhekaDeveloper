@@ -85,7 +85,7 @@ const fetchItems = async () => {
         $axios.get("/projects", { headers }),
       ]);
 
-    directions.value = directionsData.data.results;
+    directions.value = directionsData.data.results.reverse();
     skills.value = skillsData.data.results;
     partners.value = partnersData.data.results;
     projects.value = projectsData.data.results;

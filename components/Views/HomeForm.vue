@@ -382,5 +382,12 @@ textarea:focus {
     color: var(--blue);
     font-size: 14px;
   }
+  .success,
+  .error {
+    top: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
 }
 </style>

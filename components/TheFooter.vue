@@ -9,17 +9,37 @@
             {{ t("main.footer_txt") }}
           </p>
           <div class="socials">
-            <a href="#" class="soc">
+            <a
+              href="https://www.instagram.com/jafar_tulaganov"
+              class="soc"
+              target="_blank"
+              rel="nofollow"
+            >
               <Icon icon="simple-icons:instagram" />
             </a>
-            <a href="#" class="soc">
+            <a
+              href="https://t.me/user/@Zh0415Th"
+              class="soc"
+              target="_blank"
+              rel="nofollow"
+            >
               <Icon icon="simple-icons:telegram" />
             </a>
-            <a href="#" class="soc">
+            <a
+              href="https://github.com/JafarTulaganov"
+              class="soc"
+              target="_blank"
+              rel="nofollow"
+            >
               <Icon icon="simple-icons:github" />
             </a>
-            <a href="#" class="soc">
-              <Icon icon="simple-icons:linkedin" />
+            <a
+              href="https://www.facebook.com/profile.php?id=100092741937888"
+              class="soc"
+              target="_blank"
+              rel="nofollow"
+            >
+              <Icon icon="simple-icons:facebook" />
             </a>
           </div>
         </div>
@@ -59,10 +79,10 @@
               <Icon icon="material-symbols:mail-outline" />
               {{ t("main.email") }}
             </div>
-            <div class="con">
+            <!-- <div class="con">
               <Icon icon="material-symbols:phone-in-talk-outline" />
               {{ t("main.number") }}
-            </div>
+            </div> -->
             <div class="con">
               <Icon
                 icon="material-symbols:nest-clock-farsight-analog-outline-rounded"
